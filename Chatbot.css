@@ -1,0 +1,17 @@
+.right { 
+  background-color: #FFFAD3;
+    margin-left: 300px;
+  }
+  .left {
+    background-color: #90E0EF;
+    margin-left: 0;
+  }
+.ConversationHistory
+{
+  display: block;
+  border: solid 1px #fff;
+  max-height: 500px;
+  width: 620px;
+  overflow: auto;
+}
+
