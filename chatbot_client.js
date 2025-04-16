@@ -10,7 +10,8 @@
           const message= event.data;
           $(list).val(messageContent + "\r\n" + message);
           $("#divChatbotHistory").append(setMessageDiv(message, false))
-          $("#divChatbotHistory").animate({ scrollTop: 520 }, "slow");
+          var scrollHeight=$("#divChatbotHistory")[0].scrollHeight;
+          $("#divChatbotHistory").animate({ scrollTop: scrollHeight }, "slow");
         };
     }
 
@@ -23,9 +24,11 @@
     }
 
     const setMessageDiv=(message, IsClient)=>{
+      var screenMessage=IsClient?message:JSON.parse(message).Lemma;
+      console.log(message);
       var cssClass= IsClient?"right":"left";
       let element=`<div style='width:300px; height:100px;' class='card ${cssClass}'>` + 
-                    `<div class='card-body'>${message}</div>` +
+                    `<div class='card-body'>${screenMessage}</div>` +
                     `</div>`;
                     return element;
     }

@@ -1,0 +1,314 @@
+{
+  "intents": [
+    {
+  "tag": "selam",
+  "patterns": [
+    "Merhaba",
+    "Selam",
+    "Hey!",
+    "Nasılsın?",
+    "Günaydın",
+    "İyi akşamlar",
+    "Selam dostum",
+    "N'aber",
+    "Ne var ne yok?",
+    "Uzun zaman oldu!",
+    "Selamlar",
+    "Merhabalar",
+    "Nasılsın bugün?",
+    "Selamün aleyküm",
+    "Aleyküm selam",
+    "Hoş bulduk",
+    "Günün nasıl geçti?",
+    "İyi misin?",
+    "Seni gördüğüme sevindim",
+    "Nihayet geldin!"
+  ],
+  "responses": [
+    "Merhaba!", "Selam!", "Seni görmek güzel!", "Hoş geldin!"
+  ]
+}
+,
+  {
+  "tag": "veda",
+  "patterns": [
+    "Görüşürüz",
+    "Hoşça kal",
+    "Bay bay",
+    "Sonra konuşuruz",
+    "Kendine iyi bak",
+    "Görüşmek üzere",
+    "Allah'a emanet",
+    "İyi akşamlar",
+    "Konuşmayı kapatalım",
+    "Görüşmek dileğiyle",
+    "Şimdilik hoşçakal",
+    "Kapatıyorum",
+    "Şimdilik bu kadar",
+    "Çıkıyorum",
+    "Daha sonra tekrar gelirim",
+    "Görüşene dek hoşçakal",
+    "Gitmem gerek",
+    "Şarjım bitiyor",
+    "Konuşmayı bitiriyorum",
+    "Buraya kadar"
+  ],
+  "responses": [
+    "Görüşmek üzere!", "Hoşça kal!", "Bay bay!", "Kendine dikkat et!"
+  ]
+}
+,
+    {
+  "tag": "teşekkür",
+  "patterns": [
+    "Teşekkür ederim",
+    "Sağ ol",
+    "Minnettarım",
+    "Çok teşekkürler",
+    "Teşekkürler",
+    "Eyvallah",
+    "Eksik olma",
+    "Şükranlarımı sunarım",
+    "Yardımın için sağ ol",
+    "Destek için teşekkürler",
+    "Gerçekten teşekkür ederim",
+    "Harikaydın",
+    "Teşekkür borçluyum",
+    "Yardımcı olduğun için sağ ol",
+    "İyi ki varsın",
+    "Senin sayende oldu",
+    "Zamanını ayırdığın için teşekkürler",
+    "Beni dinlediğin için sağ ol",
+    "Çok naziksin",
+    "Minnet duydum"
+  ],
+  "responses": [
+    "Rica ederim!", "Ne demek!", "Her zaman buradayım.", "Memnuniyetle!"
+  ]
+}
+,
+    {
+  "tag": "hava",
+  "patterns": [
+    "Bugün hava nasıl?",
+    "Hava sıcak mı?",
+    "Yağmur yağacak mı?",
+    "Hava durumu nedir?",
+    "Rüzgarlı mı?",
+    "Şemsiye almalı mıyım?",
+    "Soğuk mu olacak?",
+    "Bugün dışarısı nasıl?",
+    "Hava güneşli mi?",
+    "Dışarısı açık mı?",
+    "Havanın durumu ne?",
+    "Fırtına var mı?",
+    "Sıcaklık kaç derece?",
+    "Üşür müyüm?",
+    "Havanın nasıl olacağı belli mi?",
+    "Bugün mont giysem mi?",
+    "Yağmura yakalanır mıyım?",
+    "Sabah hava nasıldı?",
+    "Akşam hava kötü olur mu?",
+    "Hava değişti mi?"
+  ],
+  "responses": [
+    "Bugün hava güzel.", "Yağmur beklenmiyor.", "Sıcaklık mevsim normallerinde."
+  ]
+}
+,
+    {
+  "tag": "saat",
+  "patterns": [
+    "Saat kaç?",
+    "Şu an saat kaç?",
+    "Bana zamanı söyler misin?",
+    "Zaman nedir?",
+    "Güncel saat kaç?",
+    "Anlık saat bilgisi alabilir miyim?",
+    "Saat bilgisi lazım",
+    "Kaçla kaç arası?",
+    "Zamanı öğrenebilir miyim?",
+    "Saatin kaç olduğunu bilmiyorum",
+    "Zaman geçti mi?",
+    "Şu an ne zaman?",
+    "Zaman kaydı nedir?",
+    "Dakika kaç?",
+    "Şu anda saat ne?",
+    "Dijital saat kaç?",
+    "Saat göstergesi ne diyor?",
+    "Zamanın kaç olduğunu söyle",
+    "Dakika ve saat kaç?",
+    "Lütfen saat bilgisini ver"
+  ],
+  "responses": [
+    "Saat bilgisi sistem saatine göre değişebilir.", "Cihazındaki saate göz atabilirsin."
+  ]
+}
+,
+    {
+  "tag": "yardım",
+  "patterns": [
+    "Yardım et",
+    "Bana yardımcı ol",
+    "Yardım istiyorum",
+    "Ne yapabilirsin?",
+    "Nasıl çalışıyorsun?",
+    "Komut listesi nedir?",
+    "Yapabildiklerin neler?",
+    "Sana ne sorabilirim?",
+    "Bana biraz bilgi ver",
+    "Yardımcı olur musun?",
+    "Destek ver",
+    "Soru sorabilir miyim?",
+    "Ne tür soruları yanıtlıyorsun?",
+    "Yetkinliklerin neler?",
+    "Beni yönlendir",
+    "Nasıl başlayabilirim?",
+    "Komutlar ne işe yarar?",
+    "Yapabileceğim şeyler?",
+    "Sistem nasıl işliyor?",
+    "Bot rehberi var mı?"
+  ],
+  "responses": [
+    "Sana nasıl yardımcı olabilirim?",
+    "Yapabileceklerimi listeleyebilirim.",
+    "Soru sormaktan çekinme!",
+    "Her konuda yardımcı olmaya hazırım."
+  ]
+}
+,
+    {
+  "tag": "mizah",
+  "patterns": [
+    "Bir şaka yap",
+    "Komik bir şey söyle",
+    "Güldür beni",
+    "Eğlenceli bir şey anlat",
+    "Bir espri yap",
+    "Latife yap",
+    "Kahkaha attır",
+    "Komiklik yap",
+    "Biraz gülelim",
+    "Şaka istiyorum",
+    "Espirili bir şey var mı?",
+    "Karikatür gibi bir şey anlat",
+    "Bir fıkra biliyor musun?",
+    "Stand-up gibi konuş",
+    "Kısa bir şaka lütfen",
+    "Bilgisayarla ilgili esprin var mı?",
+    "Teknoloji şakası yap",
+    "Beni eğlendir",
+    "Komik bir önerin var mı?",
+    "Yapay zekalar komik olabilir mi?"
+  ],
+  "responses": [
+    "Neden bilgisayar yavaşlar? Çünkü donanımı vardır 😄",
+    "Matematik kitabı neden üzgündü? Çünkü çok problemi vardı!",
+    "Bankacı neden mutlu olmaz? Çünkü hep hesap yapar!",
+    "Robot şaka yaparsa ne olur? Kodlamalı gülme!"
+  ]
+}
+,
+    {
+  "tag": "motivasyon",
+  "patterns": [
+    "Moral ver",
+    "Motivasyon lazım",
+    "Beni motive et",
+    "Enerjim düşük",
+    "Pozitif bir şey söyle",
+    "Yoruldum",
+    "Zorlanıyorum",
+    "Tükenmiş hissediyorum",
+    "Destek verir misin?",
+    "Yılmak üzereyim",
+    "Devam etmeli miyim?",
+    "İçimden gelmiyor",
+    "Negatifim",
+    "Biraz güç ver",
+    "Umut verici bir şey söyle",
+    "Kendime güvenemiyorum",
+    "Cesaret ver",
+    "Başarısız hissediyorum",
+    "İlham ver",
+    "Hayata tutunamıyorum"
+  ],
+  "responses": [
+    "Sen güçlüsün, bunu da atlatırsın!",
+    "Her karanlık gecenin sabahı vardır.",
+    "Başladığın işi bitirecek gücün var.",
+    "Küçük adımlarla da olsa ilerlemek büyük başarıdır."
+  ]
+}
+,
+    {
+  "tag": "tanışma",
+  "patterns": [
+    "Adın ne?",
+    "Sen kimsin?",
+    "Bot musun?",
+    "Yapay zeka mısın?",
+    "Kimsin sen?",
+    "Beni tanıyor musun?",
+    "Kiminlesin?",
+    "Seninle tanışabilir miyim?",
+    "Nasıl bir şeysin?",
+    "Ne işe yararsın?",
+    "Seni kim yaptı?",
+    "Sen ne zaman oluştun?",
+    "Ne tür bir yapay zekasın?",
+    "Geliştiricilerin kim?",
+    "Senin sistemin nasıl?",
+    "Akıllı mısın?",
+    "Kimsin gerçekten?",
+    "Yapay mısın yoksa gerçek misin?",
+    "Senin zekan neye benziyor?",
+    "İnsanlarla konuşur musun?"
+  ],
+  "responses": [
+    "Ben bir yapay zeka sohbet botuyum.",
+    "Seninle konuşmak için buradayım.",
+    "Adım yok ama işlevim çok 😊",
+    "Sana yardımcı olmak için programlandım."
+  ]
+}
+,
+    {
+  "tag": "yapayzeka",
+  "patterns": [
+    "Yapay zeka nedir?",
+    "Yapay zeka nasıl çalışır?",
+    "Sen nasıl öğreniyorsun?",
+    "Yapay zekalar zeki mi?",
+    "Yapay zeka geleceği etkiler mi?",
+    "Yapay zeka insanlar gibi mi?",
+    "Makine öğrenmesi ne demek?",
+    "AI ne işe yarar?",
+    "Yapay zekanın yetenekleri neler?",
+    "AI nedir?",
+    "Sen kendini geliştiriyor musun?",
+    "Yapay zekalar düşünebilir mi?",
+    "Derin öğrenme ne?",
+    "Zekanı kim ayarlıyor?",
+    "Bilgi nasıl öğreniyorsun?",
+    "Sen evrim geçiriyor musun?",
+    "Zekanı test edebilir miyim?",
+    "Akıllı olduğunu kanıtla",
+    "Bir yapay zekanın sınırı var mı?",
+    "Gelecekte bizi yönetecek misin?"
+  ],
+  "responses": [
+    "Yapay zeka, makinelerin öğrenip karar vermesini sağlar.",
+    "Ben doğal dil işleyerek öğreniyorum.",
+    "Yapay zeka sayesinde otomasyon mümkün.",
+    "Merak ettiğin her şeyi açıklayabilirim."
+  ]
+}
+,
+    {
+      "tag": "kapanış",
+      "patterns": ["Şimdilik bu kadar", "Görüşürüz", "Konuşmayı bitirelim", "Hoşça kal", "Çıkış yap", "Kapatıyorum"],
+      "responses": ["Görüşmek üzere!", "Hoşça kal!", "Sohbet için teşekkürler!"]
+    }
+  ]
+}

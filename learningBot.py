@@ -6,8 +6,8 @@ import random
 from datetime import datetime
 
 # === Yollar ===
-modelPath="C:\\PythonProject\\Github Project\\UskudarProject\\model" 
-intentPath="C:\\PythonProject\\Github Project\\UskudarProject\\intents.json"
+modelPath="C:\\PythonProject\\Github Project\\NLP_Project\\model" 
+intentPath="C:\\PythonProject\\Github Project\\NLP_Project\\intents.json"
 
 # === Model, Tokenizer, Etiketler ===
 model = BertForSequenceClassification.from_pretrained(modelPath, ignore_mismatched_sizes=True)
@@ -32,26 +32,28 @@ def get_response(text):
     print(f"[DEBUG] Tahmin edilen intent: {tag}")
 
     for intent in intents:
+        
         if intent["tag"] == tag:
-            response = random.choice(intent["responses"])
+            responseText = random.choice(intent["responses"])
 
             # BONUS: Saat intent'i için dinamik sistem saati ekle
             if tag == "saat":
-                return f"{response} Şu an: {datetime.now().strftime('%H:%M')}"
+                responseText= f"{responseText} Şu an: {datetime.now().strftime('%H:%M')}"
             
             # BONUS: Tarih intent'i için dinamik tarih ekle
             if tag == "tarih":
-                return f"{response} Bugün: {datetime.now().strftime('%d.%m.%Y')}"
+                responseText= f"{responseText} Bugün: {datetime.now().strftime('%d.%m.%Y')}"
 
-            return response
+            return {"ResponseText":responseText, "Tag":tag}
 
-    return "Ne demek istediğini anlayamadım."
+    return {"ResponseText":"Ne demek istediğini anlayamadım.", "Tag":"Bilinmiyor"} 
+    
 
 # === Ana Döngü ===
-print("ChatBot: Merhaba! (Çıkmak için 'çık' yaz.)")
-while True:
-    text = input("Sen: ")
-    if text.lower() == "çık":
-        print("ChatBot: Görüşmek üzere!")
-        break
-    print("ChatBot:", get_response(text))
+# print("ChatBot: Merhaba! (Çıkmak için 'çık' yaz.)")
+# while True:
+#     text = input("Sen: ")
+#     if text.lower() == "çık":
+#         print("ChatBot: Görüşmek üzere!")
+#         break
+#     print("ChatBot:", get_response(text))

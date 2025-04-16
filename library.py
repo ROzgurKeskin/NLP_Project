@@ -4,7 +4,7 @@ import spacy
 from nltk.sentiment import SentimentIntensityAnalyzer
 nltk.download('vader_lexicon')
 nlp = spacy.load("en_core_web_sm")
-nlp = spacy.load("tr_core_web_sm")
+#nlp = spacy.load("tr_core_web_sm")
 
 sid = SentimentIntensityAnalyzer() 
 
@@ -32,14 +32,6 @@ def recognize_intent(message):
             break
     
     return intent if intent else "Bilinmeyen"
-
-def extract_entities(message):
-    doc = nlp(message)
-    entities = []
-    for ent in doc.ents:
-        entities.append((ent.text, ent.start_char, ent.end_char, ent.label_))
-    
-    return entities
 
 def extract_entities(message):
     doc = nlp(message)

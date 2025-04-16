@@ -13,9 +13,9 @@ import torch
 from datasets import Dataset
 
 # === Ayarlar === 
-basePath="C:\\PythonProject\\Github Project\\UskudarProject"
-modelPath="C:\\PythonProject\\Github Project\\UskudarProject\\model"
-intentPath="C:\\PythonProject\\Github Project\\UskudarProject\\intents.json"
+basePath="C:\\PythonProject\\Github Project\\NLP_Project"
+modelPath="C:\\PythonProject\\Github Project\\NLP_Project\\model"
+intentPath="C:\\PythonProject\\Github Project\\NLP_Project\\intents.json"
 
 # === Veriyi Yükle ===
 with open(intentPath, "r", encoding="utf-8") as f:

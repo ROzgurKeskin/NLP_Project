@@ -10,6 +10,7 @@ from library import getMessageResponse
  
 from spacy.vocab import Vocab
 from spacy.language import Language
+from learningBot import get_response
 nlp = Language(Vocab())
 
 # Set of connected clients
@@ -32,14 +33,15 @@ async def handle_client(websocket):
                 if client == websocket:
                     #message= message + " sunucu yanıtıdır"
                     sentiment= Analyze_Sentiment(message)
-                    intent= recognize_intent(message)
                     entitites= extract_entities(message)
-                    responseLemma=getMessageResponse(message)
+                    intent= recognize_intent(message)
+                    botResponse= get_response(message)
+                    print(f"{botResponse}")
                     responseObject={
                         "Sentiment":sentiment,
-                        "Intent":intent,
+                        "Intent":botResponse["Tag"],
                         "Entities":entitites,
-                        "Lemma":responseLemma
+                        "Lemma":botResponse["ResponseText"]
                     }
                     await client.send(json.dumps(responseObject))
     except websockets.exceptions.ConnectionClosed:
