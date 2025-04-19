@@ -1,0 +1,1 @@
+Low confidence prediction: Text='Eyfel kulesi hakkında bilgin var mı', Tag='teknoloji', Probability=0.33

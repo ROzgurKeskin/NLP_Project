@@ -32,15 +32,14 @@ async def handle_client(websocket):
             for client in connected_clients:
                 if client == websocket:
                     #message= message + " sunucu yanıtıdır"
-                    sentiment= Analyze_Sentiment(message)
-                    entitites= extract_entities(message)
-                    intent= recognize_intent(message)
+                    #sentiment= Analyze_Sentiment(message)
+                    #entitites= extract_entities(message)
                     botResponse= get_response(message)
                     print(f"{botResponse}")
                     responseObject={
-                        "Sentiment":sentiment,
+                        #"Sentiment":sentiment,
                         "Intent":botResponse["Tag"],
-                        "Entities":entitites,
+                        #"Entities":entitites,
                         "Lemma":botResponse["ResponseText"]
                     }
                     await client.send(json.dumps(responseObject))

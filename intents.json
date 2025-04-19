@@ -27,8 +27,7 @@
   "responses": [
     "Merhaba!", "Selam!", "Seni görmek güzel!", "Hoş geldin!"
   ]
-}
-,
+},
   {
   "tag": "veda",
   "patterns": [
@@ -217,8 +216,6 @@
     "Beni motive et",
     "Enerjim düşük",
     "Pozitif bir şey söyle",
-    "Yoruldum",
-    "Zorlanıyorum",
     "Tükenmiş hissediyorum",
     "Destek verir misin?",
     "Yılmak üzereyim",
@@ -231,7 +228,19 @@
     "Cesaret ver",
     "Başarısız hissediyorum",
     "İlham ver",
-    "Hayata tutunamıyorum"
+    "Hayata tutunamıyorum",
+    "Zor bir dönemden geçiyorum",
+    "Beni cesaretlendir",
+    "İçimdeki gücü bulmalıyım",
+    "Hayat zor geliyor",
+    "Başarıya ulaşmak zor",
+    "İleriye gitmek istiyorum ama zorlanıyorum",
+    "Hayatımda değişiklik yapmalıyım",
+    "Kendimi kötü hissediyorum",
+    "Hayatımda bir şeyler yolunda gitmiyor",
+    "Kendimi kötü hissediyorum",
+    "Hayatımda bir şeyler yolunda gitmiyor",
+    "Beni motive edebilir misin?"
   ],
   "responses": [
     "Sen güçlüsün, bunu da atlatırsın!",
@@ -263,7 +272,12 @@
     "Kimsin gerçekten?",
     "Yapay mısın yoksa gerçek misin?",
     "Senin zekan neye benziyor?",
-    "İnsanlarla konuşur musun?"
+    "İnsanlarla konuşur musun?",
+    "Seninle sohbet edebilir miyim?",
+    "Seninle tanışmak istiyorum",
+    "Seninle arkadaş olabilir miyim",
+    "İsmin neydi dostum senin",
+    "Bana biraz kendinden bahset"
   ],
   "responses": [
     "Ben bir yapay zeka sohbet botuyum.",
@@ -273,9 +287,132 @@
   ]
 }
 ,
-    {
-  "tag": "yapayzeka",
+{
+      "tag": "kapanış",
+      "patterns": [
+    "Şimdilik bu kadar",
+    "Görüşürüz",
+    "Konuşmayı bitirelim",
+    "Hoşça kal",
+    "Çıkış yap",
+    "Kapatıyorum",
+    "Sonra görüşürüz",
+    "Şimdilik hoşça kal",
+    "Sohbeti bitirelim",
+    "Kendine iyi bak",
+    "Bir dahaki sefere görüşürüz",
+    "Şimdilik ayrılıyorum",
+    "Daha sonra konuşuruz",
+    "İyi günler",
+    "İyi akşamlar",
+    "Şimdilik hoşça kalalım",
+    "Gitmem gerekiyor",
+    "Şarjım bitmek üzere",
+    "Burada bırakıyorum",
+    "Sonra devam ederiz",
+    "Birazdan tekrar gelirim",
+    "Birazdan döneceğim",
+    "Birazdan görüşelim",
+    "Birazdan tekrar buluşalım",
+    "Birazdan tekrar görüşelim",
+    "Birazdan tekrar sohbet edelim",
+    "Şimdi gitmem gerekiyor",
+    "Ayrılmak zorundayım",
+    "Akşam ezanı okunuyor",
+    "Sohbeti bitimek istiyorum"
+  ],
+      "responses": ["Görüşmek üzere!", "Hoşça kal!", "Sohbet için teşekkürler!"]
+},
+{
+      "tag": "Türkiye",
+    "patterns": [
+      "Türkiye'nin başkenti neresidir?",
+		"Türkiye'nin en büyük şehri hangisi?",
+		"Türkiye'nin tarihi hakkında bilgi verir misin?",
+		"Türkiye'nin ekonomisi nasıl?",
+		"Türkiye'nin coğrafi özellikleri nelerdir?",
+		"Türkiye'nin komşuları kimlerdir?",
+		"Türkiye'nin en yüksek dağı nedir?",
+		"Türkiye'nin en uzun nehri hangisidir?",
+    "Türkiye'nin nüfusu kaçtır?",
+    "Türkiye'nin yüzölçümü ne kadar?",
+    "Türkiye'nin en popüler yemekleri nelerdir?",
+    "Türkiye'nin kültürü hakkında bilgi verir misin?",
+    "Türkiye'nin en ünlü şehirleri hangileridir?",
+    "Türkiye'nin en güzel yerleri nerelerdir?",
+    "Türkiye'nin iklimi nasıldır?",
+    "Türkiye'nin bayrağı neyi temsil eder?",
+    "Türkiye'nin resmi dili nedir?",
+    "Türkiye'nin en çok ziyaret edilen yerleri nerelerdir?",
+    "Türkiye'nin en büyük gölü hangisidir?",
+    "Türkiye'nin tarihi eserleri nelerdir?",
+	"Ülkemizin başkenti neresidir?",
+		"Ülkemizin en büyük şehri hangisi?",
+		"Ülkemizin tarihi hakkında bilgi verir misin?",
+    "Ülkemizin ekonomisi nasıl?",
+		"Ülkemizin coğrafi özellikleri nelerdir?",
+		"Ülkemizin komşuları kimlerdir?",
+		"Ülkemizin en yüksek dağı nedir?",
+		"Ülkemizin en uzun nehri hangisidir?",
+    "Ülkemizin nüfusu kaçtır?",
+    "Ülkemizin yüzölçümü ne kadar?",
+    "Ülkemizin en popüler yemekleri nelerdir?",
+    "Ülkemizin kültürü hakkında bilgi verir misin?",
+    "Ülkemizin en ünlü şehirleri hangileridir?",
+    "Ülkemizin en güzel yerleri nerelerdir?",
+    "Ülkemizin iklimi nasıldır?",
+    "Ülkemizin bayrağı neyi temsil eder?",
+    "Ülkemizin resmi dili nedir?",
+    "Ülkemizin en çok ziyaret edilen yerleri nerelerdir?",
+    "Ülkemizin en büyük gölü hangisidir?"
+	],
+      "responses": ["Türkiye ile ilgili bilgileri verebilirim", "Ülkemizle ilgili bilgileri wikipedia dan bakabilirsin", "Ülkemizi tanımalıyız"]
+},
+{
+  "tag": "eğitim",
   "patterns": [
+    "Eğitim sistemi nasıl?",
+    "Okullar ne zaman açılıyor?",
+    "Eğitimle ilgili bilgi verir misin?",
+    "Üniversite sınavı hakkında bilgi alabilir miyim?",
+    "Eğitimde yenilikler var mı?",
+    "Eğitim reformları neler?",
+    "Uzaktan eğitim nasıl oluyor?",
+    "Eğitimde teknoloji kullanımı nedir?",
+    "Eğitimde başarı nasıl sağlanır?",
+    "Eğitimle ilgili haberler var mı?"
+  ],
+  "responses": [
+    "Eğitimle ilgili bilgi verebilirim.",
+    "Eğitim sistemi hakkında detaylı bilgi için resmi kaynaklara göz atabilirsiniz.",
+    "Eğitimle ilgili sorularınızı yanıtlamaya hazırım."
+  ]
+},
+{
+  "tag": "teknoloji",
+  "patterns": [
+    "Yeni teknolojiler neler?",
+    "Teknoloji haberleri var mı?",
+    "Yapay zeka nasıl çalışır?",
+    "Teknoloji dünyasında neler oluyor?",
+    "En son çıkan telefon hangisi?",
+    "Teknolojiyle ilgili bilgi verir misin?",
+    "Teknoloji hayatımızı nasıl etkiliyor?",
+    "Gelecekteki teknolojiler neler olabilir?",
+    "Teknoloji bağımlılığı nedir?",
+    "Teknolojiyle ilgili önerilerin var mı?",
+    "Teknoloji ve insan ilişkisi nedir?",
+    "Teknolojiyle ilgili gelişmeler neler?",
+    "Teknoloji ve eğitim ilişkisi nedir?",
+    "Teknolojinin avantajları ve dezavantajları neler?",
+    "Bilgisayar ne zaman icat edildi",
+    "İlk bilgisayar ne zaman yapıldı?",
+    "Teknolojinin tarihçesi nedir?",
+    "Akıllı telefonlarla neler yapılır",
+    "Teknolojinin geleceği hakkında ne düşünüyorsun?",
+    "Yapay zeka yazılımcıları nasıl etkiliyor?",
+    "Yapay zeka kimlerin işini elinden alacak?",
+    "Teknoloji bağımlılığı nasıl önlenir?",
     "Yapay zeka nedir?",
     "Yapay zeka nasıl çalışır?",
     "Sen nasıl öğreniyorsun?",
@@ -296,19 +433,72 @@
     "Akıllı olduğunu kanıtla",
     "Bir yapay zekanın sınırı var mı?",
     "Gelecekte bizi yönetecek misin?"
+    ],
+  "responses": [
+    "Teknolojiyle ilgili birçok bilgiye sahibim.",
+    "Teknoloji dünyasındaki gelişmeleri takip edebilirsin.",
+    "Teknolojiyle ilgili sorularını yanıtlamaktan mutluluk duyarım."
+  ]
+},
+{
+  "tag": "sağlık",
+  "patterns": [
+    "Sağlıklı yaşam için öneriler var mı?",
+    "Egzersiz yapmanın faydaları nelerdir?",
+    "Sağlıkla ilgili bilgi verir misin?",
+    "Dengeli beslenme nedir?",
+    "Hangi vitaminler önemlidir?",
+    "Sağlıklı bir diyet nasıl yapılır?",
+    "Uyku düzeni neden önemlidir?",
+    "Stresle nasıl başa çıkabilirim?",
+    "Sağlıkla ilgili haberler var mı?",
+    "Hastalıkları önlemek için ne yapmalıyım?"
   ],
   "responses": [
-    "Yapay zeka, makinelerin öğrenip karar vermesini sağlar.",
-    "Ben doğal dil işleyerek öğreniyorum.",
-    "Yapay zeka sayesinde otomasyon mümkün.",
-    "Merak ettiğin her şeyi açıklayabilirim."
+    "Sağlıklı yaşam için dengeli beslenme ve düzenli egzersiz önemlidir.",
+    "Sağlıkla ilgili sorularınızı yanıtlayabilirim.",
+    "Sağlıklı bir yaşam için önerilerim var."
+  ]
+},
+{
+  "tag": "spor",
+  "patterns": [
+    "Bugünkü maç sonuçları nedir?",
+    "Hangi spor dalları popüler?",
+    "Spor yapmanın faydaları nelerdir?",
+    "Futbol hakkında bilgi verir misin?",
+    "Basketbol maçları ne zaman?",
+    "Sporla ilgili haberler var mı?",
+    "Hangi sporları önerirsin?",
+    "Spor yapmaya nasıl başlayabilirim?",
+    "Spor dünyasında neler oluyor?",
+    "Sporla ilgili etkinlikler var mı?"
+  ],
+  "responses": [
+    "Sporla ilgili bilgi verebilirim.",
+    "Spor yapmanın hem fiziksel hem de zihinsel faydaları vardır.",
+    "Spor dünyasındaki gelişmeleri takip edebilirsin."
+  ]
+},
+{
+  "tag": "yemek",
+  "patterns": [
+    "Bugün ne pişirsem?",
+    "En popüler yemek tarifleri neler?",
+    "Kolay yemek tarifleri var mı?",
+    "Türk mutfağı hakkında bilgi verir misin?",
+    "Sağlıklı yemek önerileri nelerdir?",
+    "Tatlı tarifleri var mı?",
+    "Yemek yapmayı öğrenmek istiyorum.",
+    "Hangi yemekler popüler?",
+    "Yemek yaparken nelere dikkat etmeliyim?",
+    "Yemekle ilgili önerilerin var mı?"
+  ],
+  "responses": [
+    "Yemek tarifleriyle ilgili yardımcı olabilirim.",
+    "Türk mutfağına dair birçok bilgiye sahibim.",
+    "Yemek yapmayı eğlenceli hale getirebilirsiniz!"
   ]
 }
-,
-    {
-      "tag": "kapanış",
-      "patterns": ["Şimdilik bu kadar", "Görüşürüz", "Konuşmayı bitirelim", "Hoşça kal", "Çıkış yap", "Kapatıyorum"],
-      "responses": ["Görüşmek üzere!", "Hoşça kal!", "Sohbet için teşekkürler!"]
-    }
   ]
 }
