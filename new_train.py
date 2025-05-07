@@ -3,6 +3,7 @@ import pickle
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
+from datetime import datetime
 
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score, confusion_matrix
@@ -11,11 +12,12 @@ from sklearn.model_selection import train_test_split
 from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
 import torch
 from datasets import Dataset
-
+startTime = datetime.now()
 # === Ayarlar === 
 basePath="C:\\PythonProject\\Github Project\\NLP_Project"
 modelPath="C:\\PythonProject\\Github Project\\NLP_Project\\model"
 intentPath="C:\\PythonProject\\Github Project\\NLP_Project\\intents.json"
+turkishModelPath="dbmdz/bert-base-turkish-cased";
 
 # === Veriyi Yükle ===
 with open(intentPath, "r", encoding="utf-8") as f:
@@ -41,7 +43,7 @@ le = LabelEncoder()
 labels_enc = le.fit_transform(labels)
 
 # === Tokenizer ve Dataset ===
-tokenizer = BertTokenizer.from_pretrained("dbmdz/bert-base-turkish-cased")
+tokenizer = BertTokenizer.from_pretrained(turkishModelPath)
 #Tokenizer'ı kaydet ve tekrar kullan
 tokenizer_path = f"{modelPath}/tokenizer"
 if not os.path.exists(tokenizer_path):
@@ -86,7 +88,7 @@ eval_dataset = Dataset.from_dict({
 
 # === Model Oluştur ===
 model = BertForSequenceClassification.from_pretrained(
-    "dbmdz/bert-base-turkish-cased",
+    turkishModelPath,
     num_labels=len(le.classes_)
 )
 
@@ -119,6 +121,11 @@ from torch.nn import CrossEntropyLoss
 
 # Özel bir kayıp fonksiyonu tanımla
 loss_fn = CrossEntropyLoss(weight=class_weights_tensor)
+
+from transformers import get_scheduler
+
+optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
+scheduler = get_scheduler("linear", optimizer=optimizer, num_warmup_steps=500, num_training_steps=len(train_dataset))
 
 # Trainer'ı kayıp fonksiyonu ile başlat
 trainer = Trainer(
@@ -165,3 +172,5 @@ with open(f"{modelPath}/label_encoder.pkl", "wb") as f:
 # Kaydedilen modelin yüklenebilirliğini test et
 loaded_model = BertForSequenceClassification.from_pretrained(modelPath)
 print("Model başarıyla kaydedildi ve yüklendi.")
+endTime = datetime.now()
+print(f"öğrenme süresi:{abs((endTime-startTime).min)} dakika")

@@ -50,8 +50,21 @@
     "Gitmem gerek",
     "Şarjım bitiyor",
     "Konuşmayı bitiriyorum",
-    "Buraya kadar"
-  ],
+    "Buraya kadar",
+    "Bitirmem gerekiyor",
+    "Sonra görüşelim",
+    "Birazdan döneceğim",
+    "Birazdan görüşelim",
+    "Birazdan tekrar buluşalım",
+    "İyi günler",
+    "iyi geceler",
+    "günün güzel geçsin dostum",
+    "görüşmek üzere dostum",
+    "görüşmek üzere arkadaşım",
+    "bu gidiş asla bir veda değil",
+    "bir sonraki görüşmemizde daha çok şey paylaşacağız",
+    "bu bir ayrılık değil olsa olsa bir mola"
+  ], 
   "responses": [
     "Görüşmek üzere!", "Hoşça kal!", "Bay bay!", "Kendine dikkat et!"
   ]
