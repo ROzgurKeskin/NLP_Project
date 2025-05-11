@@ -9,7 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 
-from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
+from transformers import BertTokenizer,XLMRobertaForSequenceClassification, BertForSequenceClassification, Trainer, TrainingArguments,XLMRobertaTokenizer 
 import torch
 from datasets import Dataset
 startTime = datetime.now()
@@ -18,6 +18,11 @@ basePath="C:\\PythonProject\\Github Project\\NLP_Project"
 modelPath="C:\\PythonProject\\Github Project\\NLP_Project\\model"
 intentPath="C:\\PythonProject\\Github Project\\NLP_Project\\intents.json"
 turkishModelPath="dbmdz/bert-base-turkish-cased";
+#turkishModelPath="xlm-roberta-base";
+
+# ===Sadece belirlenen sınıflarını filtrele ===
+selected_tags = ["yardım", "tanışma"]
+
 
 # === Veriyi Yükle ===
 with open(intentPath, "r", encoding="utf-8") as f:
@@ -27,9 +32,10 @@ sentences = []
 labels = []
 
 for intent in data["intents"]:
-    for pattern in intent["patterns"]:
-        sentences.append(pattern)
-        labels.append(intent["tag"])
+    if len(selected_tags)>0 & (intent["tag"] in selected_tags):
+        for pattern in intent["patterns"]:
+            sentences.append(pattern)
+            labels.append(intent["tag"])
 
 # Sınıf dağılımını kontrol et
 from collections import Counter
@@ -39,16 +45,28 @@ print("Sınıf Dağılımı:", class_counts)
 
 
 # === Label Encoding ===
-le = LabelEncoder()
-labels_enc = le.fit_transform(labels)
+with open(f"{modelPath}/label_encoder.pkl", "rb") as f:
+    le = pickle.load(f)
+labels_enc = le.transform(labels)
+
+# le = LabelEncoder()
+# labels_enc = le.fit_transform(labels)
 
 # === Tokenizer ve Dataset ===
+#tokenizer = XLMRobertaTokenizer.from_pretrained(turkishModelPath, use_fast=True)
 tokenizer = BertTokenizer.from_pretrained(turkishModelPath)
+# === Model Oluştur ===
+model = BertForSequenceClassification.from_pretrained(modelPath)
+# model = BertForSequenceClassification.from_pretrained(turkishModelPath,  num_labels=len(le.classes_))
+# model = XLMRobertaForSequenceClassification.from_pretrained(
+#     turkishModelPath,
+#     num_labels=len(le.classes_)
+# )
+
 #Tokenizer'ı kaydet ve tekrar kullan
 tokenizer_path = f"{modelPath}/tokenizer"
 if not os.path.exists(tokenizer_path):
     tokenizer.save_pretrained(tokenizer_path)
-tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
 
 encodings = tokenizer(sentences, truncation=True, padding=True)
 
@@ -58,11 +76,7 @@ dataset = Dataset.from_dict({
     "labels": labels_enc
 })
 
-# === Eğitim / Doğrulama Bölme ===
-# dataset = dataset.train_test_split(test_size=0.2)
-# train_dataset = dataset["train"]
-# eval_dataset = dataset["test"]
-
+# Eğitim ve doğrulama setlerini ayır
 from sklearn.model_selection import train_test_split
 
 # Stratified split
@@ -86,27 +100,7 @@ eval_dataset = Dataset.from_dict({
     "labels": eval_labels
 })
 
-# === Model Oluştur ===
-model = BertForSequenceClassification.from_pretrained(
-    turkishModelPath,
-    num_labels=len(le.classes_)
-)
 
-
-# === Eğitim Ayarları ===
-training_args = TrainingArguments(
-    output_dir=modelPath,
-    eval_strategy="epoch",
-    save_strategy="epoch",
-    num_train_epochs=10,
-    learning_rate=2e-5,
-    per_device_train_batch_size=4,
-    per_device_eval_batch_size=4,
-    save_total_limit=1,
-    logging_dir=f"{basePath}\\logs",
-    logging_steps=10,
-    warmup_steps=500
-)
 # Sınıf ağırlıklarını hesapla
 total_samples = sum(class_counts.values())
 class_weights = {label: total_samples / count for label, count in class_counts.items()}
@@ -127,16 +121,56 @@ from transformers import get_scheduler
 optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
 scheduler = get_scheduler("linear", optimizer=optimizer, num_warmup_steps=500, num_training_steps=len(train_dataset))
 
-# Trainer'ı kayıp fonksiyonu ile başlat
-trainer = Trainer(
+from sklearn.metrics import f1_score
+from transformers import EarlyStoppingCallback
+
+def compute_metrics(p):
+    preds = torch.argmax(torch.tensor(p.predictions), dim=1)
+    return {
+        'accuracy': accuracy_score(p.label_ids, preds),
+        'f1': f1_score(p.label_ids, preds, average='weighted')
+    }
+
+
+#Custom bir kayıp fonksiyonu kullanmak için Trainer sınıfını özelleştir
+class CustomTrainer(Trainer):
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
+        labels = inputs.pop("labels")
+        outputs = model(**inputs)
+        loss = loss_fn(outputs.logits, labels)  # Özel kayıp fonksiyonu kullanımı
+        return (loss, outputs) if return_outputs else loss
+
+# === Eğitim Ayarları ===
+training_args = TrainingArguments(
+    #output_dir=modelPath,
+    output_dir=f"{modelPath}/fine_tuned",
+    eval_strategy="epoch",
+    save_strategy="epoch",
+    num_train_epochs=5,
+    learning_rate=1e-5,
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
+    save_total_limit=1,
+    #weight_decay=0.01,  # Ağırlık çürümesi
+    logging_dir=f"{basePath}\\logs",
+    logging_steps=10,
+    warmup_steps=500,
+    load_best_model_at_end=True,
+    metric_for_best_model='f1',  # veya 'accuracy' veya 'f1'
+    greater_is_better=True
+)
+
+# CustomTrainer ile Trainer başlat
+trainer = CustomTrainer(
     model=model,
     args=training_args,
     train_dataset=train_dataset,
-    eval_dataset=eval_dataset
-    # compute_loss_func=lambda model, inputs: loss_fn(
-    #     model(**inputs).logits, inputs["labels"]
-    # )
+    eval_dataset=eval_dataset,
+    tokenizer=tokenizer,
+    compute_metrics=compute_metrics,
+    callbacks=[EarlyStoppingCallback(early_stopping_patience=4)]  # X epoch boyunca gelişme olmazsa dur
 )
+
 # === Eğitimi Başlat ===
 trainer.train()
 
@@ -146,10 +180,13 @@ preds = torch.argmax(torch.tensor(predictions.predictions), dim=1)
 
 # === Doğruluk Hesapla ===
 acc = accuracy_score(eval_dataset["labels"], preds)
+acc2 = f1_score(eval_dataset["labels"], preds, average='weighted') 
+
 print(f"\n Accuracy (Doğruluk): {acc:.2%}")
+print(f"\n F1 Score : {acc2:.2%}")
 
 from sklearn.metrics import classification_report
-print(classification_report(eval_dataset["labels"], preds, target_names=le.classes_))
+print(classification_report(eval_dataset["labels"], preds, target_names=le.classes_, zero_division=0))
 
 # === Confusion Matrix Çiz ===
 cm = confusion_matrix(eval_dataset["labels"], preds)
@@ -163,9 +200,9 @@ plt.savefig("confusion_matrix.png")
 plt.show()
 
 # Model ve Etiketleri Kaydet
-os.makedirs(modelPath, exist_ok=True)
-model.save_pretrained(modelPath)
-tokenizer.save_pretrained(modelPath)
+os.makedirs(f"{modelPath}/fine_tuned", exist_ok=True)
+model.save_pretrained(f"{modelPath}/fine_tuned")
+tokenizer.save_pretrained(f"{modelPath}/fine_tuned")
 with open(f"{modelPath}/label_encoder.pkl", "wb") as f:
     pickle.dump(le, f)
 
@@ -173,4 +210,8 @@ with open(f"{modelPath}/label_encoder.pkl", "wb") as f:
 loaded_model = BertForSequenceClassification.from_pretrained(modelPath)
 print("Model başarıyla kaydedildi ve yüklendi.")
 endTime = datetime.now()
-print(f"öğrenme süresi:{abs((endTime-startTime).min)} dakika")
+totalSeconds= (endTime-startTime).total_seconds()
+# toplam dakikayı hesapla
+totalMinutes=totalSeconds/60
+print(f"öğrenme süresi:{totalSeconds} saniye")
+print(f"öğrenme süresi:{totalMinutes} dakika")
