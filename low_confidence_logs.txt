@@ -1,1 +1,9 @@
 Low confidence prediction: Text='Eyfel kulesi hakkında bilgin var mı', Tag='teknoloji', Probability=0.33
+Low confidence prediction: Text='arabistan çölünde neler var', Tag='teknoloji', Probability=0.74
+Low confidence prediction: Text='bakara suresi 61-62 ayet okur musun', Tag='teknoloji', Probability=0.28
+Low confidence prediction: Text='bu sene kim şampiyon olacak', Tag='spor', Probability=0.43
+Low confidence prediction: Text='Beşiktaş ın nufusu kaç kişi', Tag='Türkiye', Probability=0.26
+Low confidence prediction: Text='uykum geldi desem', Tag='motivasyon', Probability=0.36
+Low confidence prediction: Text='sabah erken kalkmalıyız', Tag='veda', Probability=0.29
+Low confidence prediction: Text='sabah erken kalkacam', Tag='veda', Probability=0.74
+Low confidence prediction: Text='yarın işim var', Tag='veda', Probability=0.44

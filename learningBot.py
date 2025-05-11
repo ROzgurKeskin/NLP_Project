@@ -6,7 +6,8 @@ import random
 from datetime import datetime
 
 # === Yollar ===
-modelPath="C:\\PythonProject\\Github Project\\NLP_Project\\model" 
+#modelPath="C:\\PythonProject\\Github Project\\NLP_Project\\model" 
+modelPath="C:\\PythonProject\\Github Project\\NLP_Project\\model"
 intentPath="C:\\PythonProject\\Github Project\\NLP_Project\\intents.json"
 lowConfidenseLog="C:\\PythonProject\\Github Project\\NLP_Project\\low_confidence_logs.txt"
 
@@ -64,12 +65,3 @@ def get_response(text, threshold=0.88, log_file=lowConfidenseLog):
 
     return {"ResponseText": "Ne demek istediğini anlayamadım.", "Tag": "Bilinmiyor"}
     
-
-# === Ana Döngü ===
-# print("ChatBot: Merhaba! (Çıkmak için 'çık' yaz.)")
-# while True:
-#     text = input("Sen: ")
-#     if text.lower() == "çık":
-#         print("ChatBot: Görüşmek üzere!")
-#         break
-#     print("ChatBot:", get_response(text))
