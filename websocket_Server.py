@@ -27,7 +27,7 @@ async def handle_client(websocket):
     try:
         # Listen for messages from the client
         async for message in websocket:
-            print(f"Yeni mesaj alındı")
+            print(f"Yeni mesaj alındı:{message}")
             # Broadcast the message to all other connected clients
             for client in connected_clients:
                 if client == websocket:

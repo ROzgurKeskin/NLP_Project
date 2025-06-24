@@ -6,14 +6,16 @@ import random
 from datetime import datetime
 
 # === Yollar ===
-#modelPath="C:\\PythonProject\\Github Project\\NLP_Project\\model" 
+#modelPath="C:\\PythonProject\\Github Project\\NLP_Project\\model"
 modelPath="C:\\PythonProject\\Github Project\\NLP_Project\\model"
+#modelFolder="fine_tuned"
+modelFolder="cross"
 intentPath="C:\\PythonProject\\Github Project\\NLP_Project\\intents.json"
 lowConfidenseLog="C:\\PythonProject\\Github Project\\NLP_Project\\low_confidence_logs.txt"
 
 # === Model, Tokenizer, Etiketler ===
-model = BertForSequenceClassification.from_pretrained(modelPath, ignore_mismatched_sizes=True)
-tokenizer = BertTokenizer.from_pretrained(modelPath)
+model = BertForSequenceClassification.from_pretrained(f"{modelPath}\\{modelFolder}", ignore_mismatched_sizes=True)
+tokenizer = BertTokenizer.from_pretrained(f"{modelPath}\\{modelFolder}")
 
 with open(f"{modelPath}/label_encoder.pkl", "rb") as f:
     le = pickle.load(f)

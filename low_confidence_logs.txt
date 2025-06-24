@@ -7,3 +7,25 @@ Low confidence prediction: Text='uykum geldi desem', Tag='motivasyon', Probabili
 Low confidence prediction: Text='sabah erken kalkmalıyız', Tag='veda', Probability=0.29
 Low confidence prediction: Text='sabah erken kalkacam', Tag='veda', Probability=0.74
 Low confidence prediction: Text='yarın işim var', Tag='veda', Probability=0.44
+Low confidence prediction: Text='ankaraya gideceğim', Tag='veda', Probability=0.44
+Low confidence prediction: Text='ankara nerededir', Tag='saat', Probability=0.50
+Low confidence prediction: Text='günün nasıl geçiyor', Tag='hava', Probability=0.53
+Low confidence prediction: Text='türkiyenin başkenti demiştik', Tag='Türkiye', Probability=0.77
+Low confidence prediction: Text='düzgün konussana', Tag='mizah', Probability=0.65
+Low confidence prediction: Text='bir bahar akşamı rastladım sana', Tag='selam', Probability=0.88
+Low confidence prediction: Text='akşam işin var mı', Tag='veda', Probability=0.46
+Low confidence prediction: Text='ankaraya gidelim diyorum', Tag='veda', Probability=0.71
+Low confidence prediction: Text='bugün işin var mı', Tag='tanışma', Probability=0.24
+Low confidence prediction: Text='akşam nereye gidelim', Tag='veda', Probability=0.29
+Low confidence prediction: Text='sabah mutlu uyanmak istiyorum', Tag='motivasyon', Probability=0.45
+Low confidence prediction: Text='işine gücüne sarıl olaylara karışma', Tag='motivasyon', Probability=0.49
+Low confidence prediction: Text='sabah erken uyanmak istemiyorum', Tag='veda', Probability=0.41
+Low confidence prediction: Text='bu işlerin sonu ne olacak', Tag='veda', Probability=0.17
+Low confidence prediction: Text='sus diyorum sana şerefsiz', Tag='teşekkür', Probability=0.36
+Low confidence prediction: Text='hızlı kitap okumak için ne yapmalıyım', Tag='eğitim', Probability=0.88
+Low confidence prediction: Text='okuldan gelirken ekmek al kendine', Tag='veda', Probability=0.67
+Low confidence prediction: Text='masumiyet müzesi kitabını kim yazdı', Tag='teknoloji', Probability=0.38
+Low confidence prediction: Text='edirne hangi bölgededir', Tag='Türkiye', Probability=0.88
+Low confidence prediction: Text='solana yükselecek mi', Tag='spor', Probability=0.17
+Low confidence prediction: Text='bitcoin yükselecek mi', Tag='teknoloji', Probability=0.48
+Low confidence prediction: Text='avax nereye gidecek', Tag='teknoloji', Probability=0.24
